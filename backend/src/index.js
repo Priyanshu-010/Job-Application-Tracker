@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 
 import connectDb from './config/db.js';
 import userRouter from './routes/user.route.js'
+import jobRouter from './routes/job.route.js'
 
 dotenv.config();
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use('/api/user', userRouter);
+app.use('/api/job', jobRouter);
 
 app.listen(PORT, ()=>{
   console.log(`Server is running on port ${PORT}`);
