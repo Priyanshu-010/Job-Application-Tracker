@@ -2,7 +2,9 @@ import Job from "../models/job.model.js";
 
 export const getAllJobs = async (req, res) => {
   try {
-    const jobs = await Job.find().sort({ applicationDate: -1 });
+    const jobs = await Job.find({ user: req.user.id }).sort({
+      applicationDate: -1,
+    });
     res.status(200).json(jobs);
   } catch (error) {
     console.log("Error in getAllJobs Controller", error);
@@ -12,7 +14,7 @@ export const getAllJobs = async (req, res) => {
 export const getJob = async (req, res) => {
   try {
     const { id } = req.params;
-    const job = await Job.findById(id);
+    const job = await Job.findById(id, { user: req.user.id });
     res.status(200).json(job);
   } catch (error) {
     console.log("Error in getJob Controller", error);
@@ -64,16 +66,16 @@ export const updateJob = async (req, res) => {
 };
 export const deleteJob = async (req, res) => {
   try {
-    const {id} = req.params;
+    const { id } = req.params;
     const job = await Job.findById(id);
-    if(!job){
-      return res.status(400).json({message: "Job does not exists"})
+    if (!job) {
+      return res.status(400).json({ message: "Job does not exists" });
     }
 
-    await Job.findByIdAndDelete(id)
-    res.status(200).json({message: "Job Application deleted"});
+    await Job.findByIdAndDelete(id);
+    res.status(200).json({ message: "Job Application deleted" });
   } catch (error) {
-    console.log("Error in deleteJob Controller", error)
-    res.status(500).json({message: "Internal Server Error"})
+    console.log("Error in deleteJob Controller", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
