@@ -1,7 +1,8 @@
+import React from 'react'
 
 function App() {
   return (
-    <div className="bg-red-600">App</div>
+    <div className='text-red-500'>App</div>
   )
 }
 
