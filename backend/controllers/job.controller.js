@@ -14,7 +14,7 @@ export const getAllJobs = async (req, res) => {
 export const getJob = async (req, res) => {
   try {
     const { id } = req.params;
-    const job = await Job.findById({_id: id, user: req.user.id });
+    const job = await Job.findOne({_id: id, user: req.user.id });
     res.status(200).json(job);
   } catch (error) {
     console.log("Error in getJob Controller", error);
@@ -42,7 +42,7 @@ export const updateJob = async (req, res) => {
   const { company, role, description, status, applicationDate } = req.body;
   try {
     const { id } = req.params;
-    const job = await Job.findById({_id: id, user: req.user.id});
+    const job = await Job.findOne({_id: id, user: req.user.id});
     if (!job) {
       return res.status(400).json({ message: "Job does not exists" });
     }
@@ -68,7 +68,7 @@ export const updateJob = async (req, res) => {
 export const deleteJob = async (req, res) => {
   try {
     const { id } = req.params;
-    const job = await Job.findById({_id: id, user: req.user.id});
+    const job = await Job.findOne({_id: id, user: req.user.id});
     if (!job) {
       return res.status(400).json({ message: "Job does not exists" });
     }
