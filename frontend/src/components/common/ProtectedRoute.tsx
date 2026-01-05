@@ -6,8 +6,9 @@ type Props = {
 }
 
 const ProtectedRoute = ({children}: Props) =>{
-  const  token = useAuthStore((state) => state.token)
-  if(!token){
+  const token = useAuthStore((state) => state.token)
+  const user = useAuthStore((state) => state.user)
+  if(!user || !token){
     return <Navigate to="/login" replace/>
   }
 
