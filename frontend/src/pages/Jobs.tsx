@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getJobsApi } from "../api/job.api";
 import type { Job } from "../types/job.types";
+import JobCard from "../components/jobs/JobCard";
 
 function Jobs() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -10,15 +11,9 @@ function Jobs() {
   }, []);
 
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {jobs.map((job) => (
-        <div key={job._id}>
-          <h1>{job.company}</h1>
-          <h1>{job.role}</h1>
-          <h1>{job.description}</h1>
-          <h1>{job.status}</h1>
-          <h1>{job.applicationDate}</h1>
-        </div>
+        <JobCard job={job} key={job._id} />
       ))}
     </div>
   );

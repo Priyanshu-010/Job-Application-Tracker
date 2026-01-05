@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const jobSchema = new mongoose.Schema(
   {
@@ -18,6 +19,10 @@ const jobSchema = new mongoose.Schema(
       type: String,
       enum: ["applied", "interviewing", "offered", "rejected"],
       default: "applied",
+    },
+    location: {
+      type: String,
+      required: true
     },
     applicationDate: {
       type: Date,

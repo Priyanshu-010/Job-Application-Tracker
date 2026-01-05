@@ -10,6 +10,7 @@ export type Job = {
   role: string;
   description: string;
   status: JobStatus;
+  location: string;
   applicationDate: string;
   createdAt: string;
   updatedAt: string;

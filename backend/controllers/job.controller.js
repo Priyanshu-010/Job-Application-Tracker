@@ -22,13 +22,14 @@ export const getJob = async (req, res) => {
   }
 };
 export const createJob = async (req, res) => {
-  const { company, role, description, status, applicationDate } = req.body;
+  const { company, role, description, status, location, applicationDate } = req.body;
   try {
     const newJob = await Job.create({
       company,
       role,
       description,
       status,
+      location,
       applicationDate,
       user: req.user.id
     });
@@ -39,7 +40,7 @@ export const createJob = async (req, res) => {
   }
 };
 export const updateJob = async (req, res) => {
-  const { company, role, description, status, applicationDate } = req.body;
+  const { company, role, description, status, location, applicationDate } = req.body;
   try {
     const { id } = req.params;
     const job = await Job.findOne({_id: id, user: req.user.id});
@@ -54,6 +55,7 @@ export const updateJob = async (req, res) => {
         role,
         description,
         status,
+        location,
         applicationDate,
       },
       { new: true }
