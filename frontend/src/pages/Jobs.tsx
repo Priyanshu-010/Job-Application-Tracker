@@ -13,7 +13,7 @@ function Jobs() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {jobs.map((job) => (
-        <JobCard job={job} key={job._id} />
+        <JobCard job={job} setJobs={setJobs} key={job._id}/>
       ))}
     </div>
   );
