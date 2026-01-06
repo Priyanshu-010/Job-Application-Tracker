@@ -106,7 +106,7 @@ function CreateJob() {
                   ref={dateInputRef}
                   required 
                   type="date" 
-                  className={`${inputClasses} [color-scheme:dark]`} 
+                  className={`${inputClasses} [scheme:dark]`} 
                   onChange={(e) => setApplicationDate(e.target.value)} 
                 />
               </div>

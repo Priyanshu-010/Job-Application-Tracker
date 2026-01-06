@@ -133,7 +133,7 @@ function EditJob() {
                   type="date" 
                   name="applicationDate" 
                   value={formData.applicationDate} 
-                  className={`${inputClasses} [color-scheme:dark]`} 
+                  className={`${inputClasses} [scheme:dark]`} 
                   onChange={handleInputChange} 
                 />
               </div>
