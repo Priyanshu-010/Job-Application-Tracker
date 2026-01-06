@@ -49,6 +49,14 @@
 
 ---
 
+## 🌐 Live Demo
+
+> 🚀 [JobTrack Live](https://job-application-tracker-gilt-three.vercel.app/)  
+> backend (https://job-application-tracker-s0rm.onrender.com)
+> *(Hosted using Render / Vercel — may take a few seconds to wake up if idle)*
+
+---
+
 ## 📦 Installation & Setup
 
 ### 1. Clone the repository
