@@ -48,10 +48,9 @@ function JobDetails() {
   const handleStatusChange = async (newStatus: JobStatus) => {
     if (!job || !id) return;
     try {
-      // Create update payload matching the Job type expected by your API
       const updatedData = { ...job, status: newStatus };
       await updateJobApi(id, updatedData);
-      setJob(updatedData); // Optimistic UI update
+      setJob(updatedData);
       toast.success(`Moved to ${newStatus}`);
     } catch (error) {
       console.error("Error updating status:", error);

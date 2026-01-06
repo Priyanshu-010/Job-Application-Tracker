@@ -44,7 +44,6 @@ function Jobs() {
           </p>
         </div>
         
-        {/* Mobile-only create button if you want it here as well as navbar */}
         <Link
           to="/create"
           className="md:hidden flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2.5 rounded-xl font-semibold transition-all shadow-lg shadow-indigo-500/20"
@@ -54,7 +53,6 @@ function Jobs() {
         </Link>
       </div>
 
-      {/* Grid Section */}
       {jobs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.map((job) => (
@@ -62,7 +60,6 @@ function Jobs() {
           ))}
         </div>
       ) : (
-        /* Empty State */
         <div className="flex flex-col items-center justify-center py-20 px-4 text-center bg-slate-900/30 border border-dashed border-slate-800 rounded-3xl">
           <div className="p-4 bg-slate-900 rounded-2xl mb-4">
             <Briefcase size={40} className="text-slate-700" />

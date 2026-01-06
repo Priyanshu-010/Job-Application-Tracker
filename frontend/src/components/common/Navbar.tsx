@@ -24,7 +24,7 @@ function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
       <nav className="container mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-10">
-        {/* Brand Logo */}
+        {/* Logo */}
         <Link 
           to="/" 
           className="flex items-center gap-2 text-xl font-bold tracking-tight text-white transition-opacity hover:opacity-90"
@@ -38,7 +38,6 @@ function Navbar() {
         <div className="flex items-center gap-4">
           {user ? (
             <div className="flex items-center gap-2 md:gap-4">
-              {/* User Identity (Desktop) */}
               <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800">
                 <div className="h-6 w-6 rounded-full bg-indigo-500/20 flex items-center justify-center">
                   <User size={14} className="text-indigo-400" />
@@ -46,7 +45,7 @@ function Navbar() {
                 <span className="text-sm font-medium text-slate-300">{user.username}</span>
               </div>
 
-              {/* Action Button */}
+              {/* Create Button */}
               <Link
                 to="/create"
                 className="flex items-center gap-1.5 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-indigo-500 hover:shadow-lg hover:shadow-indigo-500/20 active:scale-95"
