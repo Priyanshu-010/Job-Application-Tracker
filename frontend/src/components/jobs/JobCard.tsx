@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import type { Job } from "../../types/job.types";
 import { formatDate } from "../../utils/date";
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
@@ -10,6 +10,7 @@ type Props = {
   setJobs: Dispatch<SetStateAction<Job[]>>;
 };
 function JobCard({ job, setJobs }: Props) {
+  const navigate = useNavigate()
   const handleClick = (id: string) => {
     if (window.confirm("Are you sure you want to delete this job listing?")) {
       try {
@@ -21,6 +22,10 @@ function JobCard({ job, setJobs }: Props) {
     }
   };
 
+  const handleEdit = (id:string) =>{
+    navigate(`/edit/${id}`)
+  }
+
   return (
     <div className="p-6 border border-amber-500">
       <Link to={`/detail/${job._id}`} key={job._id}>
@@ -31,7 +36,7 @@ function JobCard({ job, setJobs }: Props) {
         <h1>{formatDate(job.applicationDate)}</h1>
       </Link>
       <div>
-        <button>
+        <button onClick={() =>handleEdit(job._id)}>
           <PenSquareIcon />
         </button>
         <button onClick={() => handleClick(job._id)}>
